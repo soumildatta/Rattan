@@ -1,7 +1,5 @@
 # Rattan
 
-Official repository for "Towards Evaluating the Robustness of Watermark-Based Protections against Unauthorized Data Usage in Text-to-Image Diffusion Models"
-
 ## Datasets 
 The following datasets were used for evaluating RATTAN:       
 [Naruto Dataset](https://huggingface.co/datasets/lambdalabs/naruto-blip-captions)\
