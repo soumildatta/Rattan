@@ -73,7 +73,7 @@ def process_data(args):
 
 def generate_img(args):
     pipe = StableDiffusionImg2ImgPipeline.from_pretrained(
-                args.model_path, torch_dtype=torch.float16)
+                "CompVis/stable-diffusion-v1-4", torch_dtype=torch.float16)
     pipe.safety_checker = None
     pipe.requires_safety_checker = False
     # pipe.unet.load_attn_procs(args.model_path)
