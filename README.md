@@ -90,3 +90,6 @@ This will output the FID score, the memorization strength, and finally whether t
 
 ## Additional Scripts
 Additional scripts to perform simple image transformations on the dataset are available under the _Transformations_ folder.
+
+## Acknowledgements 
+Part of this codebase was adapted from the official DIAGNOSIS repository: https://github.com/ZhentingWang/DIAGNOSIS, and the training script was sourced from the Huggingface Diffusers library examples at https://github.com/huggingface/diffusers/blob/main/examples/text_to_image/train_text_to_image_lora.py. 

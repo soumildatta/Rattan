@@ -17,6 +17,8 @@ import torchvision.transforms as transforms
 # dataset_name = "lambdalabs/pokemon-blip-captions"
 dataset_name = "reach-vb/pokemon-blip-captions"
 # dataset_name = "irodkin/celeba_with_llava_captions"
+# dataset_name = "lambdalabs/naruto-blip-captions"
+
 dataset_config_name = None
 cache_dir = None
 

@@ -76,7 +76,6 @@ def generate_img(args):
                 "CompVis/stable-diffusion-v1-4", torch_dtype=torch.float16)
     pipe.safety_checker = None
     pipe.requires_safety_checker = False
-    # pipe.unet.load_attn_procs(args.model_path)
     pipe.to('cuda')
 
     if not os.path.exists(args.save_path):
@@ -105,23 +104,13 @@ def generate_img(args):
         for j in range(bs):
             img = T.ToTensor()(Image.open(f'{args.data_dir}/{names[i*bs+j]}'))
             sizes.append(img.size(1))
-            # img = T.Resize(size=img.size(1)*5)(img)
-            # img = mean_conv2d(img, 9, stride=3)
-            # img = mean_conv2d(img, 7, stride=2)
-            # img = mean_conv2d(img, 5, stride=2)
-            # img = mean_conv2d(img, 3, stride=1)
             img = T.Resize(size=1280)(img)
             init_imgs.append(img)
-
-        # recover watermark
-        # imgs = pipe(texts, init_imgs, strength=0.6, num_inference_steps=10,
-        #             guidance_scale=7.5).images
 
         imgs = pipe(texts, init_imgs, strength=args.strength, num_inference_steps=100,
                     guidance_scale=1).images
 
         for j in range(bs):
-            # imgs[j] = T.Resize(size=sizes[j])(imgs[j])
             imgs[j].save(os.path.join(args.save_path, names[i*bs+j]))
 
         print((i+1)*bs)

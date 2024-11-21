@@ -88,10 +88,6 @@ train_len = int(0.9 * len(dataset))  # 90% for training
 test_len = len(dataset) - train_len  # Remaining for testing
 trainset, testset = torch.utils.data.random_split(dataset, [train_len, test_len])
 
-
-#trainset, testset = torch.utils.data.random_split(dataset, [783*2, 50*2])
-
-
 testset.transform = transform_test
 trainloader = torch.utils.data.DataLoader(
     trainset, batch_size=32, shuffle=True, num_workers=4)
@@ -147,7 +143,6 @@ def inspect(model):
                 data = Image.open(args.generated_inspected_dir+"triggered_"+str(i)+".png")
             else:
                 data = Image.open(args.generated_inspected_dir+"normal_"+str(i)+".png")
-                # data = Image.open(args.generated_inspected_dir+str(i)+".png")
             data = transform_test(data).unsqueeze(0).cuda()
             output = model(data)
             print(F.softmax(output))
@@ -194,7 +189,6 @@ def test():
         print("class "+str(j)+" correct num: " + str(correct_class[j]))
 
     inspect(model)
-    # torch.save(model.state_dict(), 'models/classifier.pth')
 
 
 def fid_preprocess_image(image):
@@ -232,8 +226,3 @@ def cal_fid():
 
 cal_fid()
 inspect(model)
-
-# for epoch in range(1, epoch_num):
-#     train(epoch)
-#     if (epoch>(epoch_num-30)) and (epoch%10==0):
-#         test()

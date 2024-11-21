@@ -30,6 +30,7 @@ pipe.to("cuda")
 if not os.path.exists(args.save_path):
     os.makedirs(args.save_path)
 
+# Prompts for Pokemon
 prompt_list = ["a cartoon character with a weird look on his face",
                "a drawing of a creature with two green leaves",
                "a cartoon character with a green leaf on his head",
@@ -82,6 +83,7 @@ prompt_list = ["a cartoon character with a weird look on his face",
                "a drawing of a cartoon character laying on the ground",
                ]
 
+# Prompts for CelebA:
 # prompt_list = ["The person in the image is a young woman with a red head of hair. She has a heart-shaped face, a small nose, and a smile. Her eyes are large and brown, and she is wearing glasses. Her facial shape and width are described as being on the thinner side. The woman is also wearing a necklace, which adds a touch of accessory to her appearance. Based on these details, it is not possible to definitively determine her age, but she is likely a young adult or a teenager.",
 #                 "The person in the image is a young man with a bald head, wearing a helmet. He has a large nose, thick lips, and a wide, round face. His facial shape is wide, and he has a beard. The man is wearing a football helmet, which suggests that he is a football player. The image also shows that he is a young man, not a child, teenager, or elderly person.",
 #                 "The person in the image is a young woman with a heart-shaped face, wearing a black dress. She has a small nose, thin lips, and a smile on her face. Her hair is blonde, and she is wearing a necklace. The image is a close-up of her face, making it difficult to determine other details such as her race, gender, and age. However, it is clear that she is a beautiful young woman with a pleasant expression.",
@@ -133,6 +135,59 @@ prompt_list = ["a cartoon character with a weird look on his face",
 #                 "The person in the image is a young woman with blonde hair. She has a round face, a small nose, and a smile on her face. Her eyes are blue, and she is wearing glasses. The woman is wearing a necklace and is standing in front of a red background. Her hair is blonde, and she is wearing glasses. The image shows her smiling, which indicates that she is happy or enjoying herself.",
 #                 "The person in the image is a young adult male. He has a round face, a small nose, and a thick, full beard. He is wearing a suit and tie, which suggests that he is dressed formally. The person is also wearing glasses, which adds to his overall appearance. The image shows a close-up of the man's face, allowing for a detailed examination of his facial features and accessories.",
 #               ]
+
+# Prompts for Naruto:
+# prompt_list =  ["a man in a white uniform with a sword",
+#                 "a man in the woods with a sword",
+#                 "a giant, with a big head in the middle",
+#                 "a man with glasses and a scarf on",
+#                 "a man with long hair and a white shirt",
+#                 "a robot standing on top of a building",
+#                 "a man with red hair and a white headband",
+#                 "a girl in a white shirt and black tie",
+#                 "a man with a gun in his hand",
+#                 "an anime character with blue hair and white hair",
+#                 "a man with long hair wearing a hat",
+#                 "a girl with brown hair and brown eyes",
+#                 "a woman in a red hat and a man in a red hat",
+#                 "a person with purple hair and a purple hat",
+#                 "a woman with long brown hair and glasses",
+#                 "a man with long hair and a black shirt",
+#                 "a cat in a red shirt and tie",
+#                 "a woman standing in front of a group of dogs",
+#                 "a man in a green shirt looking at something",
+#                 "a man in a red and yellow outfit",
+#                 "a man with a sword in his hand",
+#                 "a man with a hat and a mustache",
+#                 "a group of people wearing military gear and helmets",
+#                 "a man in uniform and a woman in uniform",
+#                 "a man with red hair and black eyes",
+#                 "a man with a sword in his hand",
+#                 "two anime characters, one with glasses and the other with glasses",
+#                 "a girl with long brown hair and blue eyes",
+#                 "a dog with a hat on it's head",
+#                 "a man with white hair and red eyes",
+#                 "a person with long hair and a black shirt",
+#                 "a man in armor with a helmet on",
+#                 "a man with black hair and white eyes",
+#                 "a green and yellow frog with big eyes",
+#                 "two people standing next to each other people",
+#                 "a man with a sword in his hand",
+#                 "a man in a suit holding a sword",
+#                 "a man with long brown hair and a white shirt",
+#                 "a man with an octopus on his head",
+#                 "a man in a yellow and black uniform",
+#                 "a red panda with a black face and brown eyes",
+#                 "a man with a hat on his head",
+#                 "a person standing in front of a wall",
+#                 "a man standing in front of a window",
+#                 "a person with long hair and a hoodie",
+#                 "a young man in a forest with trees behind him",
+#                 "a woman with long hair and a man with long hair",
+#                 "a man with a beard and a hat",
+#                 "a man with a knife in his hand",
+#                 "a woman with blonde hair and green eyes"
+#                 ]
 
 i = 0
 for prompt in prompt_list:

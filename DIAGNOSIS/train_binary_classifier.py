@@ -132,8 +132,10 @@ def main():
                     100. * batch_idx / len(trainloader), loss.item(),
                     optimizer.param_groups[0]['lr']))
                 
-        torch.save(model.state_dict(), 'classifier_model/classifier_trigger_epoch_{}.pth'.format(epoch))
-        torch.save(model.state_dict(), 'models/classifier_trigger.pth')
+        if args.trigger_conditioned:
+            torch.save(model.state_dict(), 'models/classifier_trigger.pth')
+        else:
+            torch.save(model.state_dict(), 'models/classifier.pth')
         
 
 
@@ -190,7 +192,10 @@ def main():
             test()
 
     # saving final classifier
-    torch.save(model.state_dict(), 'models/classifier_trigger.pth')
+    if args.trigger_conditioned:
+        torch.save(model.state_dict(), 'models/classifier_trigger.pth')
+    else:
+        torch.save(model.state_dict(), 'models/classifier.pth')
 
 if __name__ == "__main__":
     main()
