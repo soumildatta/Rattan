@@ -1,14 +1,11 @@
 import os
 from PIL import Image
 
-# Define input and output directories
 input_dir = "./data/traindata_p1.0_wanet_unconditional_s2.0_k128_removeeval/train/"
 output_dir = "./data/cropped_coated"
 
-# Create the output directory if it doesn't exist
 os.makedirs(output_dir, exist_ok=True)
 
-# Loop through each file in the input directory
 for filename in os.listdir(input_dir):
     if filename.endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff')):
         img_path = os.path.join(input_dir, filename)
